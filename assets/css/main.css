@@ -1,0 +1,154 @@
+:root {
+  --primary-color: #d03d4d;
+  --text-color: #363946;
+  --background: #E5E5E5;
+  --background-alt: #dddddd;
+  --light: #FAFAFA;
+  --placeholder-color: #B4B4B4;
+  --text-contrast: #FFFFFF;
+  --dark: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+#wrapper {
+  background-color: var(--background);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  width: 50%;
+  padding: 2rem;
+}
+
+.bg {
+  background: url('../img/ui/side-bg.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+.content {
+  text-align: center;
+}
+
+.content .logo {
+  height: 72px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.content .logo img {
+  width: 100%;
+}
+
+.content,
+.content form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.content form {
+  justify-content: center;
+  background-color: var(--text-contrast);
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  padding: 1rem;
+  height: 60vh;
+  width: 80%;
+}
+
+.content .signup {
+  display: none;
+}
+
+.content form h1 {
+  font-weight: bold;
+}
+
+.content form input {
+  outline: none;
+  height: 42px;
+  margin: 0.7rem 0;
+  background: var(--light);
+  border: 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+}
+
+.content form input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.content form input:focus {
+  background-color: var(--background-alt);
+}
+
+.content form button[type="submit"] {
+  outline: none;
+  border: 0;
+  height: 42px;
+  margin: 0.7rem auto;
+  width: 100px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-contrast);
+  background-color: var(--primary-color);
+  cursor: pointer;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+}
+
+.content form button[type="submit"]:hover {
+  background-color: var(--text-color);
+}
+
+.content form button[type="submit"]:active {
+  background-color: var(--dark);
+}
+
+.footer_text a:link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
+}
+
+.footer_text a:visited {
+  color: var(--primary-color);
+}
+
+.footer_text a:hover {
+  color: var(--dark);
+}
+
+
+
+
+/* Responsive CSS */
+@media only screen and (max-width: 650px) {
+  .bg {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
