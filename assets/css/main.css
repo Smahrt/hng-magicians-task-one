@@ -1,5 +1,7 @@
 :root {
   --primary-color: #d03d4d;
+  --primary-color-shade: #BD3746;
+  --primary-color-tint: #E64356;
   --text-color: #363946;
   --background: #E5E5E5;
   --background-alt: #dddddd;
@@ -57,13 +59,17 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-content: center;
+}
+
+.content_wrapper {
+  width: 80%;
 }
 
 .content form {
   justify-content: center;
-  background-color: var(--text-contrast);
+  background-color: var(--light);
   border-radius: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
   padding: 1rem;
@@ -71,7 +77,8 @@ body {
   width: 80%;
 }
 
-.content .signup {
+.content .signup,
+.content .post_login {
   display: none;
 }
 
@@ -83,9 +90,9 @@ body {
   outline: none;
   height: 42px;
   margin: 0.7rem 0;
-  background: var(--light);
+  background: var(--text-contrast);
   border: 0;
-  width: 100%;
+  width: 90%;
   text-align: center;
   border-radius: 5px;
   font-size: 14px;
@@ -98,7 +105,7 @@ body {
 }
 
 .content form input:focus {
-  background-color: var(--background-alt);
+  background-color: var(--background);
 }
 
 .content form button[type="submit"] {
@@ -117,11 +124,15 @@ body {
 }
 
 .content form button[type="submit"]:hover {
-  background-color: var(--text-color);
+  background-color: var(--primary-color-tint);
 }
 
 .content form button[type="submit"]:active {
-  background-color: var(--dark);
+  background-color: var(--primary-color-shade);
+}
+
+.footer_text {
+  justify-content: center;
 }
 
 .footer_text a:link {
@@ -139,8 +150,10 @@ body {
   color: var(--dark);
 }
 
-
-
+/* Override swal text */
+.swal-text {
+  text-align: center;
+}
 
 /* Responsive CSS */
 @media only screen and (max-width: 650px) {

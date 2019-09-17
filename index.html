@@ -18,12 +18,13 @@
         <div class="logo">
           <img src="./assets/img/ui/smart-logo.png">
         </div>
-        <form class="login">
-          <h1>Sign In</h1>
-          <input type="email" placeholder="email" autocomplete="no">
-          <input type="password" placeholder="password">
 
-          <button type="submit">Let's Go</button>
+        <form class="login animated fadeIn">
+          <h1>Sign In</h1>
+          <input type="email" name="email" id="email" placeholder="email" autocomplete="no">
+          <input type="password" name="password" id="password" placeholder="password">
+
+          <button class="form_button" type="submit">Let's Go</button>
 
         </form>
 
@@ -31,22 +32,23 @@
           <p>Don't have an account? <a href="#">Create one</a></p>
         </div>
 
-        <form class="signup">
+        <form class="signup animated fadeIn">
           <h1>Sign Up</h1>
-          <input type="text" placeholder="name" autocomplete="no">
-          <input type="email" placeholder="email" autocomplete="no">
-          <input type="password" placeholder="password">
+          <input type="text" name="name" placeholder="name" autocomplete="no">
+          <input type="email" name="email" placeholder="email" autocomplete="no">
+          <input type="password" name="password" placeholder="password">
 
-          <button type="submit">Let's Go</button>
+          <button class="form_button" type="submit">Let's Go</button>
 
         </form>
 
-        <div class="footer_text signup">
+        <div class="footer_text animated fadeIn signup">
           <p>Already a member? <a href="#">Log in</a></p>
         </div>
       </div>
     </div>
     <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 
 </html>
