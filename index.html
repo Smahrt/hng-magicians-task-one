@@ -19,10 +19,10 @@
           <img src="./assets/img/ui/smart-logo.png">
         </div>
 
-        <form class="login animated fadeIn">
+        <form id="login" class="login animated fadeIn">
           <h1>Sign In</h1>
-          <input type="email" name="email" id="email" placeholder="email" autocomplete="no">
-          <input type="password" name="password" id="password" placeholder="password">
+          <input type="email" name="email" id="email" required placeholder="email" autocomplete="no">
+          <input type="password" name="password" required id="password" placeholder="password">
 
           <button class="form_button" type="submit">Let's Go</button>
 
@@ -32,7 +32,7 @@
           <p>Don't have an account? <a href="#">Create one</a></p>
         </div>
 
-        <form class="signup animated fadeIn">
+        <form id="signup" class="signup animated fadeIn">
           <h1>Sign Up</h1>
           <input type="text" name="name" placeholder="name" autocomplete="no">
           <input type="email" name="email" placeholder="email" autocomplete="no">

@@ -2,8 +2,8 @@ const loginBtn = document.querySelector('.login button[type=\'submit\']'),
   signupBtn = document.querySelector('.signup button[type=\'submit\']'),
   signupTrigger = document.querySelector('.login a'),
   loginTrigger = document.querySelector('.signup a'),
-  loginForm = document.querySelector('form.login'),
-  signupForm = document.querySelector('form.signup');
+  loginForm = document.querySelector('#login'),
+  signupForm = document.querySelector('#signup');
 
 const handleLoginRequest = ev => {
   ev.preventDefault();
