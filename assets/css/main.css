@@ -71,7 +71,7 @@ body {
   width: 80%;
 }
 
-.content .signup {
+.content #signup {
   display: none;
 }
 
