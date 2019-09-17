@@ -1,5 +1,6 @@
 const loginBtn = document.querySelector('.login button[type=\'submit\']'),
   signupBtn = document.querySelector('.signup button[type=\'submit\']'),
+  logoutBtn = document.querySelector('.logout.form_button'),
   signupTrigger = document.querySelector('.login a'),
   loginTrigger = document.querySelector('.signup a'),
   loginForm = document.querySelector('#login'),
@@ -17,9 +18,15 @@ const handleSignupRequest = ev => {
   request('signup', body)
 }
 
+const handleLogoutRequest = ev => {
+  ev.preventDefault();
+  const body = new FormData();
+  request('logout', body);
+}
+
 const request = (type, body) => {
   body.append(type, '');
-  const form = type === 'login' ? loginForm : signupForm;
+  const form = (type === 'login' && type !== 'logout') ? loginForm : signupForm;
   fetch('/server/process.php', {
       method: 'POST',
       body
@@ -37,25 +44,40 @@ const request = (type, body) => {
       }
     })
     .then(jsonResponse => {
-      if (jsonResponse.status === 'error') {
-        swal({
-          title: 'Oops! 😬',
-          text: jsonResponse.data,
-          icon: jsonResponse.status,
-          button: false
-        });
-      } else {
-        swal({
-          title: `${type === 'login' ? `Welcome ${jsonResponse.data}` : 'You\'re all signed up' }! 😊`,
-          text: type === 'login' ? `You're logged in.` : 'You can log in now.',
-          icon: jsonResponse.status,
-          button: false
-        });
-        form.reset();
+      if (type !== 'logout') {
+        if (jsonResponse.status === 'error') {
+          swal({
+            title: 'Oops! 😬',
+            text: jsonResponse.data,
+            icon: jsonResponse.status,
+            button: false
+          });
+        } else {
+          swal({
+            title: `${type === 'login' ? `Welcome ${jsonResponse.data}` : 'You\'re all signed up' }! 😊`,
+            text: type === 'login' ? `You're logged in.` : 'You can log in now.',
+            icon: jsonResponse.status,
+            button: false
+          }).then(() => {
+            form.reset(); // reset the form
 
-        if (type === 'signup') {
-          showLoginForm();
+            if (type === 'login') {
+              window.location.reload(false); // reload the page
+            } else {
+              showLoginForm();
+            }
+          });
         }
+      } else {
+        //logout 
+        swal({
+          title: `You're logged out. 😢`,
+          text: 'Hope to see you again',
+          icon: jsonResponse.status,
+          button: false
+        }).then(() => {
+          window.location.reload(false);
+        });
       }
     });
 }
@@ -83,7 +105,13 @@ const showLoginForm = ev => {
   toggleVisibility('.signup', 'none');
 }
 
-loginBtn.addEventListener('click', handleLoginRequest);
-signupBtn.addEventListener('click', handleSignupRequest);
-signupTrigger.addEventListener('click', showSignUpForm);
-loginTrigger.addEventListener('click', showLoginForm);
+if (loginBtn) { // ensure that the DOM els have loaded before adding event listener
+  loginBtn.addEventListener('click', handleLoginRequest);
+  signupBtn.addEventListener('click', handleSignupRequest);
+  signupTrigger.addEventListener('click', showSignUpForm);
+  loginTrigger.addEventListener('click', showLoginForm);
+}
+
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', handleLogoutRequest);
+}

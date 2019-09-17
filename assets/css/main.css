@@ -108,7 +108,7 @@ body {
   background-color: var(--background);
 }
 
-.content form button[type="submit"] {
+.content .form_button {
   outline: none;
   border: 0;
   height: 42px;
@@ -123,11 +123,11 @@ body {
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .4s;
 }
 
-.content form button[type="submit"]:hover {
+.content .form_button:hover {
   background-color: var(--primary-color-tint);
 }
 
-.content form button[type="submit"]:active {
+.content .form_button:active {
   background-color: var(--primary-color-shade);
 }
 
