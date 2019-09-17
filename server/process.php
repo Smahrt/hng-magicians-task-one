@@ -16,9 +16,12 @@ if (isset($_POST['login'])) {
     if ($num_rows == 1) {
       $row = mysqli_fetch_array($response);
       $email = $row['email'];
+      $id = $row['id'];
+      $name = $row['name'];
       // save email and id to the session
-      // $_SESSION['email'] = $email;
-      sendResponse("success", $row['name']);
+      $_SESSION['email'] = $email;
+      $_SESSION['name'] = $name;
+      sendResponse("success", $name);
     } else {
       sendResponse("error", "Wrong credentials. Please create an account");
     }
@@ -59,6 +62,14 @@ if (isset($_POST['signup'])) {
   } else {
     sendResponse("error", "Unable to complete your request. Try again at a later time");
   }
+}
+
+if (isset($_POST['logout'])) {
+  session_destroy();
+  unset($_SESSION['email']);
+  unset($_SESSION['name']);
+
+  sendResponse("success", "");
 }
 
 function sendResponse($status, $message)
