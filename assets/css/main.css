@@ -109,6 +109,7 @@ body {
 }
 
 .content .form_button {
+  position: relative;
   outline: none;
   border: 0;
   height: 42px;
@@ -163,5 +164,61 @@ body {
 
   .content {
     width: 100%;
+  }
+}
+
+/* Button Loader */
+
+.button--loading:before {
+  margin: -13px 0 0 -13px;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: '';
+  -webkit-border-radius: 18px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 18px;
+  -moz-background-clip: padding;
+  border-radius: 18px;
+  background-clip: padding-box;
+  border: rgba(255, 255, 255, 0.25) 2px solid;
+  border-top-color: #fff;
+  -webkit-animation: animation-rotate 750ms linear infinite;
+  -moz-animation: animation-rotate 750ms linear infinite;
+  -o-animation: animation-rotate 750ms linear infinite;
+  animation: animation-rotate 750ms linear infinite;
+}
+
+.button--loading span,
+.button--loading:hover span,
+.button--loading:active span {
+  color: transparent;
+  text-shadow: none;
+}
+
+
+@-webkit-keyframes animation-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes animation-rotate {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes animation-rotate {
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-rotate {
+  100% {
+    transform: rotate(360deg);
   }
 }

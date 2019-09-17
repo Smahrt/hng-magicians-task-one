@@ -35,7 +35,9 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
           <input type="email" name="email" id="email" required placeholder="email" autocomplete="no">
           <input type="password" name="password" required id="password" placeholder="password">
 
-          <button class="form_button" type="submit">Let's Go</button>
+          <button class="form_button" type="submit">
+            <span>Let's Go</span>
+          </button>
 
         </form>
 
@@ -49,7 +51,9 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
           <input type="email" name="email" placeholder="email" autocomplete="no">
           <input type="password" name="password" placeholder="password">
 
-          <button class="form_button" type="submit">Let's Go</button>
+          <button class="form_button" type="submit">
+            <span>Let's Go</span>
+          </button>
 
         </form>
 
@@ -60,7 +64,9 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
         <div>
           <h1>Welcome <?= $name ?></h1>
           <p>Your email is <strong><?= $email ?></strong> </p>
-          <button class="form_button logout">Log Out</button>
+          <button class="form_button logout">
+            <span>Log Out</span>
+          </button>
         </div>
       <?php } ?>
     </div>

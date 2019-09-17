@@ -25,6 +25,7 @@ const handleLogoutRequest = ev => {
 }
 
 const request = (type, body) => {
+  toggleLoader(type, true);
   body.append(type, '');
   const form = (type === 'login' && type !== 'logout') ? loginForm : signupForm;
   fetch('/server/process.php', {
@@ -44,6 +45,7 @@ const request = (type, body) => {
       }
     })
     .then(jsonResponse => {
+      toggleLoader(type, false);
       if (type !== 'logout') {
         if (jsonResponse.status === 'error') {
           swal({
@@ -103,6 +105,16 @@ const showLoginForm = ev => {
   }
   toggleVisibility('.login', 'flex');
   toggleVisibility('.signup', 'none');
+}
+
+const toggleLoader = (type, show) => {
+  const el = {
+    login: loginBtn,
+    signup: signupBtn,
+    logout: logoutBtn
+  };
+
+  el[type].classList[show ? 'add' : 'remove']('button--loading');
 }
 
 if (loginBtn) { // ensure that the DOM els have loaded before adding event listener
